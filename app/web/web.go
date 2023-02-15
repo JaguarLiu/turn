@@ -7,7 +7,7 @@ import (
 )
 
 func NewWebRouter(r *gin.Engine) {
-	r.LoadHTMLGlob("./app/templates/*.html")
+	r.LoadHTMLGlob("./app/template/pages/*.html")
 	group := r.Group("/web")
 	group.GET("/upload", upload)
 }

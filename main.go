@@ -9,7 +9,7 @@ import (
 
 func main() {
 	route := gin.Default()
-	route.Static("/assets", "/template/assets")
+	route.Static("/assets", "./app/template/assets")
 	fileSrv := service.NewFileSrv()
 	api.NewFileRouter(route, fileSrv)
 	web.NewWebRouter(route)

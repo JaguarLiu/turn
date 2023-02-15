@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="/assets/vendors/select2/select2.min.css">
+    <link rel="stylesheet" href="/assets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<html>
+
+<body>
+    <div class="container-fluid page-body-wrapper">
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <!-- <div class="page-header">
+                  <h3 class="page-title"> Form elements </h3>
+                  <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="#">Forms</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Form elements</li>
+                    </ol>
+                  </nav>
+                </div> -->
+                <div class="row justify-content-center">
+                    <div class="col-6 grid-margin stretch-card ">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">上傳</h4>
+                                <form enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        <label>{{ .label }}</label>
+                                        <input type="file" name="files" multiple class="file-upload-default">
+                                        <div class="input-group col-xs-12">
+                                            <input type="text"  class="form-control file-upload-info"
+                                                disabled="" placeholder="上傳.xls .xlsx">
+                                            <span class="input-group-append">
+                                                <button class="file-upload-browse btn btn-primary"
+                                                    type="button">Upload</button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                                    <!-- <button class="btn btn-dark">Cancel</button> -->
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- content-wrapper ends -->
+        </div>
+        <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+    <!-- plugins:js -->
+    <script src="/assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <script src="/assets/js/file-upload.js"></script>
+</body>
+
+</html>
