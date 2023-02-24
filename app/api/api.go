@@ -2,11 +2,13 @@ package api
 
 import (
 	"math/rand"
+	"net/http"
 	"os"
 	"path/filepath"
 	"strconv"
 	"time"
 
+	"github.com/JaguarLiu/turn/model"
 	"github.com/JaguarLiu/turn/service"
 
 	"github.com/gin-gonic/gin"
@@ -24,17 +26,18 @@ func upload(ctx *gin.Context) {
 	rand.Seed(t.UnixNano())
 	rootPath, _ := os.Getwd()
 	form, err := ctx.MultipartForm()
+	resp := model.Payload{
+		Message: "OK",
+	}
 	if err != nil {
-		ctx.JSON(400, gin.H{
-			"message": err.Error(),
-		})
+		resp.Message = err.Error()
+		ctx.JSON(http.StatusBadRequest, resp)
 		return
 	}
 	files := form.File["files"]
 	if len(files) == 0 {
-		ctx.JSON(400, gin.H{
-			"message": "file not found",
-		})
+		resp.Message = model.File_not_found
+		ctx.JSON(http.StatusBadRequest, resp)
 	}
 	for _, file := range files {
 		fixNum := rand.Intn(20)
@@ -43,7 +46,5 @@ func upload(ctx *gin.Context) {
 		ctx.SaveUploadedFile(file, tempPath)
 		fileSrv.Save(fileName, tempPath)
 	}
-	ctx.JSON(200, gin.H{
-		"message": "ok",
-	})
+	ctx.JSON(http.StatusBadRequest, resp)
 }
